@@ -16,6 +16,8 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+!/.idea/icon.png
+!/.idea/vcs.xml
 *.iws
 *.iml
 *.ipr
@@ -35,3 +37,6 @@ build/
 /aty/
 /ballcat-job/logs/ballcat-job/
 .flattened-pom.xml
+
+### OS files
+.DS_Store

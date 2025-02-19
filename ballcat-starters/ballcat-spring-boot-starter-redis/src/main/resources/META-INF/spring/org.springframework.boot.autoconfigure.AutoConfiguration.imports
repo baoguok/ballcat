@@ -1,2 +1,0 @@
-com.hccake.ballcat.autoconfigure.redis.BallcatRedisAutoConfiguration
-com.hccake.ballcat.autoconfigure.redis.MessageEventListenerAutoConfiguration

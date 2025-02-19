@@ -1,114 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>org.ballcat</groupId>
+		<artifactId>ballcat-parent</artifactId>
+		<version>${revision}</version>
+		<relativePath>./ballcat-parent/pom.xml</relativePath>
+	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.hccake</groupId>
 	<artifactId>ballcat</artifactId>
-	<version>${revision}</version>
 	<packaging>pom</packaging>
 	<name>ballcat</name>
-	<url>https://github.com/hccake/ballcat</url>
-	<description>项目基本脚手架</description>
+	<url>https://github.com/ballcat-projects/ballcat</url>
+	<description>一个简单好用的功能组件库</description>
 
 	<modules>
-		<module>ballcat-admin</module>
-		<module>ballcat-auth</module>
-		<module>ballcat-common</module>
+		<module>api-signature/ballcat-spring-boot-starter-apisignature</module>
+
 		<module>ballcat-dependencies</module>
-		<module>ballcat-extends</module>
-		<module>ballcat-i18n</module>
-		<module>ballcat-log</module>
-		<module>ballcat-notify</module>
-		<module>ballcat-security</module>
-		<module>ballcat-starters</module>
-		<module>ballcat-system</module>
-	</modules>
+		<module>ballcat-parent</module>
+
+		<module>common/ballcat-common-core</module>
+		<module>common/ballcat-common-model</module>
+		<module>common/ballcat-common-util</module>
+
+		<module>datascope/ballcat-spring-boot-starter-datascope</module>
+
+		<module>desensitize/ballcat-desensitize</module>
+
+		<module>dingtalk/ballcat-dingtalk</module>
+		<module>dingtalk/ballcat-spring-boot-starter-dingtalk</module>
+
+		<module>excel/ballcat-spring-boot-starter-fastexcel</module>
+
+		<module>file/ballcat-spring-boot-starter-file</module>
+
+		<module>grpc/ballcat-spring-boot-starter-grpc</module>
+		<module>grpc/ballcat-spring-boot-starter-grpc-server</module>
+		<module>grpc/ballcat-spring-boot-starter-grpc-client</module>
+
+		<module>i18n/ballcat-i18n</module>
+		<module>i18n/ballcat-spring-boot-starter-i18n</module>
+
+		<module>idempotent/ballcat-idempotent</module>
+		<module>idempotent/ballcat-spring-boot-starter-idempotent</module>
+
+		<module>ip/ballcat-spring-boot-starter-ip2region</module>
+
+		<module>job/ballcat-spring-boot-starter-xxljob</module>
+		<module>job/ballcat-spring-boot-starter-quartz</module>
+
+		<module>kafka/ballcat-kafka</module>
+		<module>kafka/ballcat-kafka-stream</module>
+		<module>kafka/ballcat-spring-boot-starter-kafka</module>
+
+		<module>log/ballcat-operation-log</module>
+		<module>log/ballcat-spring-boot-starter-operation-log</module>
+
+		<module>mail/ballcat-spring-boot-starter-mail</module>
+
+		<module>mybatis-plus/ballcat-mybatis-plus</module>
+		<module>mybatis-plus/ballcat-spring-boot-starter-mybatis-plus</module>
+
+		<module>ntp/ballcat-ntp</module>
+
+		<module>openapi/ballcat-spring-boot-starter-openapi</module>
+
+		<module>oss/ballcat-spring-boot-starter-oss</module>
+
+		<module>pay/ballcat-pay-ali</module>
+		<module>pay/ballcat-pay-virtual</module>
+		<module>pay/ballcat-pay-wx</module>
+		<module>pay/ballcat-spring-boot-starter-pay</module>
+
+		<module>redis/ballcat-redis</module>
+		<module>redis/ballcat-redis-module</module>
+		<module>redis/ballcat-spring-boot-starter-redis</module>
+
+		<module>security/ballcat-security-core</module>
+		<module>security/ballcat-spring-security</module>
+		<module>security/ballcat-spring-security-oauth2-authorization-server</module>
+		<module>security/ballcat-spring-security-oauth2-core</module>
+		<module>security/ballcat-spring-security-oauth2-resource-server</module>
+
+		<module>sms/ballcat-spring-boot-starter-sms</module>
+
+		<module>tesseract/ballcat-tesseract</module>
+
+		<module>web/ballcat-spring-boot-starter-web</module>
+		<module>web/ballcat-web</module>
+
+		<module>websocket/ballcat-websocket</module>
+		<module>websocket/ballcat-spring-boot-starter-websocket</module>
+
+		<module>xss/ballcat-spring-boot-starter-xss</module>
+    </modules>
 
 	<properties>
-		<revision>1.0.2-SNAPSHOT</revision>
-
+		<!-- maven 配置 -->
 		<java.version>1.8</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<flatten-maven-plugin.version>1.3.0</flatten-maven-plugin.version>
-		<lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
-		<lombok.version>1.18.24</lombok.version>
-		<maven-compiler-plugin.verison>3.10.1</maven-compiler-plugin.verison>
-		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-		<maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
-		<maven-release-plugin.version>3.0.0-M5</maven-release-plugin.version>
-		<maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
-		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-		<nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
-		<!-- mapstruct 和 lombok 等注解处理器 -->
-		<org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<spring-boot.version>2.7.6</spring-boot.version>
-		<spring-javaformat-checkstyle.version>0.0.35</spring-javaformat-checkstyle.version>
 	</properties>
 
-	<dependencies>
-		<!-- bean 转换工具类 -->
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>${org.mapstruct.version}</version>
-		</dependency>
-		<!-- lombok 代码简化处理器 -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.hccake</groupId>
-				<artifactId>ballcat-dependencies</artifactId>
-				<version>${revision}</version>
-				<scope>import</scope>
-				<type>pom</type>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 	<!--环境变量-->
-
 	<profiles>
 		<profile>
+			<id>ossrh</id>
 			<build>
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
-						<version>${maven-gpg-plugin.version}</version>
 						<executions>
 							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
 								<goals>
 									<goal>sign</goal>
 								</goals>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
 							</execution>
 						</executions>
 					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>${maven-javadoc-plugin.version}</version>
 						<configuration>
 							<additionalJOption>-J-Dfile.encoding=UTF-8</additionalJOption>
 							<doclint>none</doclint>
@@ -120,18 +149,16 @@
 						</configuration>
 						<executions>
 							<execution>
+								<id>attach-javadocs</id>
 								<goals>
 									<goal>jar</goal>
 								</goals>
-								<id>attach-javadocs</id>
 							</execution>
 						</executions>
 					</plugin>
-					<!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-release-plugin</artifactId>
-						<version>${maven-release-plugin.version}</version>
 						<configuration>
 							<autoVersionSubmodules>true</autoVersionSubmodules>
 							<goals>deploy</goals>
@@ -142,32 +169,30 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-source-plugin</artifactId>
-						<version>${maven-source-plugin.version}</version>
 						<executions>
 							<execution>
+								<id>attach-sources</id>
 								<goals>
 									<goal>jar-no-fork</goal>
 								</goals>
-								<id>attach-sources</id>
 							</execution>
 						</executions>
 					</plugin>
 					<plugin>
 						<groupId>org.sonatype.plugins</groupId>
 						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>${nexus-staging-maven-plugin.version}</version>
+						<extensions>true</extensions>
 						<configuration>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 							<stagingProgressTimeoutMinutes>20</stagingProgressTimeoutMinutes>
 						</configuration>
-						<extensions>true</extensions>
 					</plugin>
 				</plugins>
 			</build>
-			<id>ossrh</id>
 		</profile>
 		<profile>
+			<id>dev</id>
 			<properties>
 				<profiles.active>dev</profiles.active>
 			</properties>
@@ -175,64 +200,26 @@
 				<!-- 默认环境 -->
 				<activeByDefault>true</activeByDefault>
 			</activation>
-			<id>dev</id>
 		</profile>
 		<profile>
+			<id>test</id>
 			<properties>
 				<profiles.active>test</profiles.active>
 			</properties>
-			<id>test</id>
 		</profile>
 		<profile>
+			<id>prod</id>
 			<properties>
 				<profiles.active>prod</profiles.active>
 			</properties>
-			<id>prod</id>
 		</profile>
 	</profiles>
 
-	<distributionManagement>
-		<repository>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-			<id>ossrh</id>
-		</repository>
-		<snapshotRepository>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<id>ossrh</id>
-		</snapshotRepository>
-	</distributionManagement>
-
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>${spring-boot.version}</version>
-					<configuration>
-						<excludes>
-							<exclude>
-								<groupId>org.projectlombok</groupId>
-								<artifactId>lombok</artifactId>
-							</exclude>
-						</excludes>
-					</configuration>
-					<executions>
-						<execution>
-							<goals>
-								<goal>build-info</goal>
-								<goal>repackage</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>io.spring.javaformat</groupId>
 				<artifactId>spring-javaformat-maven-plugin</artifactId>
-				<version>${spring-javaformat-checkstyle.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -246,24 +233,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.verison}</version>
 				<configuration>
 					<annotationProcessorPaths>
-						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>${org.mapstruct.version}</version>
-						</path>
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 							<version>${lombok.version}</version>
-						</path>
-						<!-- additional annotation processor required as of Lombok 1.18.16 -->
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok-mapstruct-binding</artifactId>
-							<version>${lombok-mapstruct-binding.version}</version>
 						</path>
 						<!-- spring-boot 配置处理 -->
 						<path>
@@ -273,15 +248,21 @@
 						</path>
 					</annotationProcessorPaths>
 					<encoding>${project.build.sourceEncoding}</encoding>
-					<skip>true</skip>
 					<source>${maven.compiler.source}</source>
 					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+			<!-- 测试插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<argLine>-Dfile.encoding=UTF-8</argLine>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>flatten-maven-plugin</artifactId>
-				<version>${flatten-maven-plugin.version}</version>
 				<configuration>
 					<flattenMode>resolveCiFriendliesOnly</flattenMode>
 					<updatePomFile>true</updatePomFile>
@@ -303,8 +284,50 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- git hook 配置 -->
+			<plugin>
+				<groupId>com.rudikershaw.gitbuildhook</groupId>
+				<artifactId>git-build-hook-maven-plugin</artifactId>
+				<inherited>false</inherited>
+				<configuration>
+					<gitConfig>
+						<!-- The location of the directory you are using to store the Git hooks in your project. -->
+						<core.hooksPath>.etc/git-hooks/</core.hooksPath>
+					</gitConfig>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<!-- Sets git config specified under configuration > gitConfig. -->
+							<goal>configure</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- checkstyle 配置 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>checkstyle-validation</id>
+						<phase>validate</phase>
+						<configuration>
+							<configLocation>src/checkstyle/checkstyle.xml</configLocation>
+							<suppressionsLocation>src/checkstyle/checkstyle-suppressions.xml</suppressionsLocation>
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+							<includeTestSourceDirectory>true</includeTestSourceDirectory>
+						</configuration>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
 	<developers>
 		<developer>
 			<name>hccake</name>
@@ -313,14 +336,13 @@
 	</developers>
 	<licenses>
 		<license>
-			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
-			<distribution>repo</distribution>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
 		</license>
 	</licenses>
 	<scm>
-		<url>https://github.com/hccake/ballcat</url>
-		<connection>https://github.com/hccake/ballcat.git</connection>
+		<url>https://github.com/ballcat-projects/ballcat</url>
+		<connection>https://github.com/ballcat-projects/ballcat.git</connection>
 		<developerConnection>https://github.com/hccake</developerConnection>
 	</scm>
 </project>
